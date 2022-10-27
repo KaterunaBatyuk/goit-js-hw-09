@@ -1,12 +1,29 @@
-const btnStart = document.querySelector('[data-start]');
-const btnStop = document.querySelector('[data-stop]');
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
 
-console.log(btnStart);
-console.log(btnStop);
+let refs = {
+  startBtn: document.querySelector('[data-start]'),
+  stopBtn: document.querySelector('[data-stop]'),
+  body: document.body,
+};
 
-btnStart.addEventListener('click', onBtnStartClick);
-btnStop.addEventListener('click', onBtnStopClick);
+refs.startBtn.addEventListener('click', onStartClick);
+refs.stopBtn.addEventListener('click', onStopClick);
 
-function onBtnStartClick() {}
+refs.stopBtn.setAttribute('disabled', true);
+let timerId = null;
+const DELAY = 1000;
 
-function onBtnStopClick() {}
+function onStartClick() {
+  refs.startBtn.setAttribute('disabled', true);
+  refs.stopBtn.removeAttribute('disabled');
+  timerId = setInterval(() => {
+    refs.body.style.backgroundColor = getRandomHexColor();
+  }, DELAY);
+}
+function onStopClick() {
+  clearInterval(timerId);
+  refs.startBtn.removeAttribute('disabled');
+  refs.stopBtn.setAttribute('disabled', true);
+}
