@@ -16,3 +16,52 @@ img {
   display: block;
   max-width: 100%;
 }
+
+button[data-start],
+button[data-stop] {
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+  /* background-color: rgb(73, 119, 119); */
+  border-radius: 5px;
+
+  text-transform: uppercase;
+
+  transition: scale 250ms ease-in-out;
+}
+
+button[data-start]:focus,
+button[data-start]:hover,
+button[data-stop]:focus,
+button[data-stop]:hover {
+  scale: 1.1;
+}
+
+button[data-start] {
+  margin-right: 20px;
+}
+
+.timer {
+  display: flex;
+
+  gap: 25px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field .value {
+  font-size: 36px;
+}
+
+.field .label {
+  text-transform: uppercase;
+}
+
+.flatpickr-input {
+  margin-right: 10px;
+  height: 40px;
+  font-size: 18px;
+}
