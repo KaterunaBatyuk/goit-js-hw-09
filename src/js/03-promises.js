@@ -10,8 +10,9 @@ form.addEventListener('submit', onFormSub);
 
 function onFormSub(event) {
   event.preventDefault();
-  for (let i = 0; i < amount.value; i += 1) {
-    createPromise(i + 1, delay + step * i)
+  for (let i = 0; i < Number(amount.value); i += 1) {
+    let delayVal = +delay.value;
+    createPromise(i + 1, (delay += step))
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
           `✅ Fulfilled promise ${position} in ${delay}ms`
