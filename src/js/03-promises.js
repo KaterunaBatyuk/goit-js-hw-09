@@ -4,7 +4,6 @@ const form = document.querySelector('.form');
 const delay = document.querySelector('[name=delay]');
 const step = document.querySelector('[name=step]');
 const amount = document.querySelector('[name=amount]');
-const create = document.querySelector('button');
 
 form.addEventListener('submit', onFormSub);
 
@@ -23,6 +22,7 @@ function onFormSub(event) {
           `❌ Rejected promise ${position} in ${delay}ms`
         );
       });
+    delayVal += Number(step.value);
   }
 }
 
